@@ -5,30 +5,26 @@ C =  gcc
 #GIT_VERSION := $(shell echo "`git symbolic-ref HEAD 2> /dev/null | cut -b 12-`-`git log --pretty=format:\"%h\" -1`")
 
 #LDFLAGS= -ldl -lm -lpthread -lmpi -fPIC -lz -L$(MPI_ARCH_PATH)/lib64
-LDFLAGS= -ldl -lm -lpthread -lmpi -fPIC -lz -lstk_io -lyaml-cpp -lmpi_cxx -lopen-rte -lopen-pal -lteuchoscomm 	-lteuchosnumerics -lteuchosparameterlist -lteuchoscore -lkokkoscore -lstk_mesh_base -lstk_topology -lstk_util_parallel -lstk_util_util -lshards -lstk_util_diag
 
+# All flags
+#LDFLAGS=-lmuelu-adapters -lmuelu-interface -lmuelu -lifpack2 -lamesos2 -lml -lifpack -lzoltan2 -lamesos -ldmumps -lmumps_common -lpord -lscalapack -lsuperlu_4.3 -lgaleri-xpetra -lgaleri-epetra -ltrilinosss -lstk_expreval -lstk_mesh_fixtures -lstk_tools_lib -lstk_transfer_impl -lstk_search -lstk_math -lstk_unit_main -lstk_unit_test_utils -lstk_io_util -lstk_io -lstk_ngp -lstk_mesh_base -lstk_topology -lstk_util_use_cases -lstk_util_registry -lstk_util_diag -lstk_util_env -lstk_util_parallel -lstk_util_util -laprepro_lib -lboost_program_options -lboost_system -lio_info_lib -lIonit -lIotr -lIohb -lIogs -lIogn -lIovs -lIoexo_fac -lIopx -lIofx -lIoex -lIoss -lzoltan -lparmetis -lmetis -lshards -lgtest -lanasazitpetra -lModeLaplace -lanasaziepetra -lanasazi -lbelosxpetra -lbelostpetra -lbelosepetra -lbelos -laztecoo -lxpetra-sup -lxpetra -lepetraext -ltriutils -lumfpack -lamd -lcolamd -lcholmod -lsuitesparseconfig -ltpetraext -ltpetrainout -ltpetra -lkokkostsqr -lkokkoskernels -lkokkosalgorithms -lkokkoscontainers -ltpetraclassiclinalg -ltpetraclassicnodeapi -ltpetraclassic -lepetra -lmapvarlib -lsuplib_cpp -lsuplib_c -lsuplib -lsupes -lchaco -lnemesis -lexoIIv2for32 -lexodus_for -lexodus -lz -lnetcdf -lhdf5 -lhdf5_hl -lpnetcdf -lsacado -lteuchoskokkoscomm -lteuchoskokkoscompat -lteuchosremainder -lteuchosnumerics -lopenblas -lteuchoscomm -lteuchosparameterlist -lteuchosparser -lteuchoscore -lkokkoscore -lyaml-cpp -lmpi -lmpi_cxx
 
+# Only Trilinos flags and yaml
+LDFLAGS=-lmuelu-adapters -lmuelu-interface -lmuelu -lifpack2 -lamesos2 -lml -lifpack -lzoltan2 -lamesos -lgaleri-xpetra -lgaleri-epetra -ltrilinosss -lstk_expreval -lstk_mesh_fixtures -lstk_tools_lib -lstk_transfer_impl -lstk_search -lstk_math -lstk_unit_main -lstk_unit_test_utils -lstk_io_util -lstk_io -lstk_ngp -lstk_mesh_base -lstk_topology -lstk_util_use_cases -lstk_util_registry -lstk_util_diag -lstk_util_env -lstk_util_parallel -lstk_util_util -laprepro_lib -lboost_program_options -lboost_system -lio_info_lib -lIonit -lIotr -lIohb -lIogs -lIogn -lIovs -lIoexo_fac -lIopx -lIofx -lIoex -lIoss -lzoltan -lshards -lgtest -lanasazitpetra -lModeLaplace -lanasaziepetra -lanasazi -lbelosxpetra -lbelostpetra -lbelosepetra -lbelos -laztecoo -lxpetra-sup -lxpetra -lepetraext -ltriutils -ltpetraext -ltpetrainout -ltpetra -lkokkostsqr -lkokkoskernels -lkokkosalgorithms -lkokkoscontainers -ltpetraclassiclinalg -ltpetraclassicnodeapi -ltpetraclassic -lepetra -lmapvarlib -lsuplib_cpp -lsuplib_c -lsuplib -lsupes -lchaco -lnemesis -lexoIIv2for32 -lexodus_for -lexodus -lz -lsacado -lteuchoskokkoscomm -lteuchoskokkoscompat -lteuchosremainder -lteuchosnumerics -lteuchoscomm -lteuchosparameterlist -lteuchosparser -lteuchoscore -lkokkoscore -lyaml-cpp -lmpi -lmpi_cxx
 
 #INCLUDES=-I./lnInclude/ -I/opt/local/include -I./ToolBox -I./ToolBox/GSL/include/ -I$(MPI_ARCH_PATH)/include
-INCLUDES=-I/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/trilinos-master-cuwfubxtt2ngh5yb6pxqjb2pdaokophd/include -I/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/openmpi-3.1.3-tfegwcywpztpm57cl44hxf64kbckdjmu/include
+INCLUDES=-I/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/trilinos-master-gv7yileuqd73mchwmyiaqe2zmqqfvyx7/include -I/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/openmpi-3.1.3-tmla2fsjf3bb6nigart7qv265vovne2v/include -I/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/yaml-cpp-0.6.2-cuarfgtpropry6cxz25nzh4fudyk2lja/include -I/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mumps-5.1.1-anwbusiknws4fa64aab5ntpj5wgf3lrc/include
 
-LIBS=-L/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/trilinos-master-cuwfubxtt2ngh5yb6pxqjb2pdaokophd/lib -L/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/openmpi-3.1.3-tfegwcywpztpm57cl44hxf64kbckdjmu/lib
+LIBS=-L/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/trilinos-master-gv7yileuqd73mchwmyiaqe2zmqqfvyx7/lib -L/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/openmpi-3.1.3-tmla2fsjf3bb6nigart7qv265vovne2v/lib -L/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/yaml-cpp-0.6.2-cuarfgtpropry6cxz25nzh4fudyk2lja/lib -L/home/raphi/spack/opt/spack/linux-ubuntu18.04-x86_64/gcc-7.3.0/mumps-5.1.1-anwbusiknws4fa64aab5ntpj5wgf3lrc/lib
 
 #CXXOPTIONS= -fdiagnostics-color=auto -std=c++14 -O3 -ftree-vectorizer-verbose=2 -ffast-math -ftree-vectorize -g3
 CXXOPTIONS= -fdiagnostics-color=auto -std=c++17 -O3 
 COPTIONS= -O3 
 
-
 CFLAGS =  -c  $(INCLUDES) $(COPTIONS) $(LIBS)
 CPPFLAGS =  -c  $(INCLUDES) $(CXXOPTIONS) $(LIBS)
 
-
-
-
-
 executableName=main.exe
-
-
 
 RM=rm -fr
 Version=Opt

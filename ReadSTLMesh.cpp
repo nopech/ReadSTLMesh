@@ -1,19 +1,20 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <ostream>
 #include <yaml-cpp/yaml.h>
 
-#include <unistd.h>                         // for unlink
-#include <stk_io/StkMeshIoBroker.hpp>       // for StkMeshIoBroker
-#include <stk_mesh/base/GetEntities.hpp>    // for count_entities
+//#include <unistd.h>                         // for unlink
+//#include <stk_io/StkMeshIoBroker.hpp>       // for StkMeshIoBroker
+//#include <stk_mesh/base/GetEntities.hpp>    // for count_entities
 #include <stk_mesh/base/MetaData.hpp>       // for MetaData
-#include <stk_mesh/base/Selector.hpp>       // for Selector
-#include <stk_topology/topology.hpp>        // for topology, etc
+//#include <stk_mesh/base/Selector.hpp>       // for Selector
+//#include <stk_topology/topology.hpp>        // for topology, etc
 #include <string>                           // for string
-#include <vector>                           // for vector
-#include "stk_io/DatabasePurpose.hpp"       // for DatabasePurpose::READ_MESH
+//#include <vector>                           // for vector
+//#include "stk_io/DatabasePurpose.hpp"       // for DatabasePurpose::READ_MESH
 
-
+namespace sierra {
 int main(int argc, char** argv) {
     std::string inputFileName = "input.i";
     std::string name;
@@ -39,9 +40,10 @@ int main(int argc, char** argv) {
     std::cout << "Name of the mesh is " << inputDBName << std::endl;
     
     // Read mesh
-//    stk::mesh::MetaData meta;
+    stk::mesh::MetaData meta;
     
     
     return 0;
 }
+} // namespace sierra
 
